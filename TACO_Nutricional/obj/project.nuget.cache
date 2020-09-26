@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Lq9gJjJW9ihoXiC2wJhWLRnBAB7LL6la1aDlWkY1imryCMCqCkf1VMkUAp8mvuBOB5iSL3aQE4cPwHVho9d5Ug==",
+  "dgSpecHash": "yEwwkxH/6oEHEjWAiJz13PcUj6g+EboNrnLOqfmCZuT8C6HIo5yTVBDU8voFzoKYTYfTRtatvCNtU3lhWfmNrg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marcos\\source\\repos\\TACO_Nutricional\\TACO_Nutricional\\TACO_Nutricional.csproj",
+  "projectFilePath": "C:\\Sistemas Versionados\\TACO_Nutricional\\TACO_Nutricional\\TACO_Nutricional.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marcos\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Marcos\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.8\\microsoft.aspnetcore.mvc.razor.extensions.3.1.8.nupkg.sha512",
