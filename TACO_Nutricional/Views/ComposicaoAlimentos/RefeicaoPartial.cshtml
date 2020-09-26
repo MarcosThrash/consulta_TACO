@@ -1,0 +1,93 @@
+﻿@model IEnumerable<TACO_Nutricional.Models.ViewModels.MontarRefeicaoVM>
+
+@{ 
+    Layout = null;
+}
+
+
+<table class="table ">
+
+    <thead class="thead-light">
+        <tr>
+            <th>
+                Nome Alimento
+            </th>
+            <th>
+                Porção (g)
+            </th>
+            <th>
+                Kcal (g)
+            </th>
+            <th>
+                Proteína (g)
+            </th>
+            <th>
+                Carboidrato (g)
+            </th>
+            <th>
+                Lipídeos (g)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomeAlimento)
+                    </td>
+                    <td class="text-center">
+                        @item.PorcaoNoPrato
+                    </td>
+                    <td class="text-center">
+                        @item.Kcal.ToString("0.0")
+                    </td>
+                    <td class="text-center">
+                        @item.Proteina.ToString("0.0")
+                    </td>
+                    <td class="text-center">
+                        @item.Carboidrato.ToString("0.0")
+                    </td>
+                    <td class="text-center">
+                        @item.Lipideos.ToString("0.0")
+                    </td>
+                </tr>
+            }
+
+            <tr class="thead-light">
+                <th >
+                    TOTAIS
+                </th>
+                <th class="text-center">
+                    @Model.Select(a => a.PorcaoNoPrato).Sum()
+                </th>
+                <th class="text-center">
+                    @Model.Select(a => a.Kcal).Sum().ToString("0.0")
+                </th>
+                <th class="text-center">
+                    @Model.Select(a => a.Proteina).Sum().ToString("0.0")
+                </th>
+                <th class="text-center">
+                    @Model.Select(a => a.Carboidrato).Sum().ToString("0.0")
+                </th>
+                <th class="text-center">
+                    @Model.Select(a => a.Lipideos).Sum().ToString("0.0")
+                </th>
+            </tr>
+
+        }
+        else
+        {
+            <tr>
+                <td>
+                    Sem itens adicionados
+                </td>
+            </tr>
+        }
+
+
+
+</table>

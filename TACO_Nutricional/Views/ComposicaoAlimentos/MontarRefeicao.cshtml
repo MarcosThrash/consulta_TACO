@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TACO_Nutricional.Models.ViewModels.MontarRefeicaoVM>
+
+<h1><i class="fas fa-utensils text-success"></i> Montar Refeição</h1>
+
+<hr />
+
+
+
+<form class="" asp-controller="ComposicaoAlimentos" asp-action="AdicionarAlimentoNaRefeicao" onsubmit="return ajaxMontarRefeição(this)" ;>
+    <div class="form-row">
+        <div class="form-group col-md-7">
+            <select class=" select-alimentos" required name="id"></select>
+        </div>
+        <div class="form-group col-md-2">
+            <input class="form-control" type="number" placeholder="Porção(gr)" aria-label="Porção(gr)" name="porcao" required>
+        </div>
+        <div class="form-group col-md-1">
+            <button class="btn btn-primary" type="submit"> <i class="fas fa-plus-square"></i></button>
+        </div>
+    </div>
+</form>
+
+
+
+<div class="div-tabela shadow p-3 mb-5 bg-white rounded">
+   
+    @Html.Partial("RefeicaoPartial", Model)
+
+</div>
+
+
+
+
