@@ -43,7 +43,9 @@ namespace TACO_Nutricional.Models.Entidades
         public double Zinco { get; set; }
 
         public int GrupoAlimentarId { get; set; }
-        
+
+        public bool CadastradoPorUsuario { get; set; }
+
         public virtual GrupoAlimentar GrupoAlimentar { get; set; }
 
         [NotMapped]

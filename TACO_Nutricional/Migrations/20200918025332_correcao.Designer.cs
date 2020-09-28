@@ -31,7 +31,7 @@ namespace TACO_Nutricional.Migrations
                     b.Property<double>("Calcio")
                         .HasColumnType("float");
 
-                    b.Property<double>("Caloria")
+                    b.Property<double>("Calorias")
                         .HasColumnType("float");
 
                     b.Property<double>("Carboidrato")

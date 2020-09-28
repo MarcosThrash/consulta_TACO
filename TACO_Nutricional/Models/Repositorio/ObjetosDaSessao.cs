@@ -42,7 +42,7 @@ namespace TACO_Nutricional.Models.Repositorio
             else
             {
                 alimentoAux.PorcaoNoPrato += alimento.PorcaoNoPrato;
-                alimentoAux.Kcal += alimento.Kcal;
+                alimentoAux.Calorias += alimento.Calorias;
                 alimentoAux.Proteina += alimento.Proteina;
                 alimentoAux.Carboidrato += alimento.Carboidrato;
                 alimentoAux.Lipideos += alimento.Lipideos;

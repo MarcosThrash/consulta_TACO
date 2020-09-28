@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using TACO_Nutricional.Models.Entidades;
 using TACO_Nutricional.Models.Repositorio;
 using TACO_Nutricional.Models.ViewModels;
 
@@ -60,14 +61,24 @@ namespace TACO_Nutricional.Controllers
                 Proteina = alimento.Proteina,
                 Carboidrato = alimento.Carboidrato,
                 Lipideos = alimento.Lipideos,
-                Kcal = alimento.Caloria
+                Calorias = alimento.Caloria
             };
-
-            //var alimentosDaRefeicao = JsonConvert.DeserializeObject<List<MontarRefeicaoVM>>(HttpContext.Session.GetString("ListaRefeicao"));
-            //alimentosDaRefeicao.Add(alimentoVM);
-            //HttpContext.Session.SetString("ListaRefeicao", JsonConvert.SerializeObject(alimentosDaRefeicao));
+           
             _objetosDaSessao.AdicionarNaListaRefeicao(alimentoVM);
             return PartialView("RefeicaoPartial", _objetosDaSessao.ObterListaRefeicao());
+        }
+
+
+        public async Task<IActionResult> CadastrarAlimento()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CadastrarAlimento(Alimento alimento)
+        {
+            _repositorioAlimento.CadastrarAlimento(alimento);
+            return Json(new { Mensagem = "Salvo com sucesso!" });
         }
 
     }

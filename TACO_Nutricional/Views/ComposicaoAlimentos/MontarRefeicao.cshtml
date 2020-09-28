@@ -23,11 +23,13 @@
 
 
 <div class="div-tabela shadow p-3 mb-5 bg-white rounded">
-   
+
     @Html.Partial("RefeicaoPartial", Model)
 
 </div>
 
+<button class="btn-primary text-white"><i class="fas fa-plus-square"></i>Cadastrar Alimento</button>
+<a onclick="showInPopup('@Url.Action("CriarOuEditar","AdminLanches",new { id = 0 },Context.Request.Scheme)','Novo Lanche')" class="btn btn-success text-white"><i class="fas fa-plus-square"></i> Novo </a>
 
 
 

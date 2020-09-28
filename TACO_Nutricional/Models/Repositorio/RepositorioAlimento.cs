@@ -38,6 +38,11 @@ namespace TACO_Nutricional.Models.Repositorio
             return _context.Alimentos.OrderBy(a => a.Nome).ToList();
         }
 
+        void IRepositorioAlimento.CadastrarAlimento(Alimento alimento)
+        {
+            _context.Alimentos.Add(alimento);
+            _context.SaveChanges();
+        }
     }
 
 }

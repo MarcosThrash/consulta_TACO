@@ -15,5 +15,7 @@ namespace TACO_Nutricional.Models.Repositorio
 
         public Alimento AlimentoParaMontarRefeicao(int Id, double porcao);
 
+        public void CadastrarAlimento(Alimento alimento);
+
     }
 }

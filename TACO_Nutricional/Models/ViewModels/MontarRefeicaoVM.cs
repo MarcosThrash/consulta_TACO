@@ -14,7 +14,7 @@ namespace TACO_Nutricional.Models.ViewModels
 
         public double PorcaoNoPrato { get; set; }
 
-        public double Kcal { get; set; }
+        public double Calorias { get; set; }
 
         public double Proteina { get; set; }
 

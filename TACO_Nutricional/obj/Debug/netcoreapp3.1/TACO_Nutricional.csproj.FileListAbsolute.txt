@@ -858,7 +858,6 @@ C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\bin\Debug\netcoreapp3.
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\TACO_Nutricional.csprojAssemblyReference.cache
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\TACO_Nutricional.AssemblyInfoInputs.cache
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\TACO_Nutricional.AssemblyInfo.cs
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\TACO_Nutricional.csproj.CoreCompileInputs.cache
@@ -888,3 +887,5 @@ C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\TACO_Nutricional.dll
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\TACO_Nutricional.pdb
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\TACO_Nutricional.genruntimeconfig.cache
+C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\TACO_Nutricional.csprojAssemblyReference.cache
+C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\Razor\Views\ComposicaoAlimentos\CadastrarAlimento.cshtml.g.cs

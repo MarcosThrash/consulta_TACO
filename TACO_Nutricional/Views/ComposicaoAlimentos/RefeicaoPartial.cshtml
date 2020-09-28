@@ -43,7 +43,7 @@
                         @item.PorcaoNoPrato
                     </td>
                     <td class="text-center">
-                        @item.Kcal.ToString("0.0")
+                        @item.Calorias.ToString("0.0")
                     </td>
                     <td class="text-center">
                         @item.Proteina.ToString("0.0")
@@ -65,7 +65,7 @@
                     @Model.Select(a => a.PorcaoNoPrato).Sum()
                 </th>
                 <th class="text-center">
-                    @Model.Select(a => a.Kcal).Sum().ToString("0.0")
+                    @Model.Select(a => a.Calorias).Sum().ToString("0.0")
                 </th>
                 <th class="text-center">
                     @Model.Select(a => a.Proteina).Sum().ToString("0.0")
@@ -87,7 +87,8 @@
                 </td>
             </tr>
         }
-
-
+        
 
 </table>
+
+
