@@ -28,7 +28,7 @@ using TACO_Nutricional.Models;
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c785ed39d365fc926834a71870542bf97a1f64b8", @"/Views/ComposicaoAlimentos/RefeicaoPartial.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cba4cbea129fc3431dc499673736ea57734d52e8", @"/Views/_ViewImports.cshtml")]
-    public class Views_ComposicaoAlimentos_RefeicaoPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<TACO_Nutricional.Models.ViewModels.MontarRefeicaoVM>>
+    public class Views_ComposicaoAlimentos_RefeicaoPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<TACO_Nutricional.Models.ViewModels.AlimentoVM>>
     {
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
@@ -215,7 +215,7 @@ using TACO_Nutricional.Models;
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<IEnumerable<TACO_Nutricional.Models.ViewModels.MontarRefeicaoVM>> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<IEnumerable<TACO_Nutricional.Models.ViewModels.AlimentoVM>> Html { get; private set; }
     }
 }
 #pragma warning restore 1591

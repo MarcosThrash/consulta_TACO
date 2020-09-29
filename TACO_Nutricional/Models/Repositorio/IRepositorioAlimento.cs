@@ -17,5 +17,7 @@ namespace TACO_Nutricional.Models.Repositorio
 
         public void CadastrarAlimento(Alimento alimento);
 
+        public IEnumerable<GrupoAlimentar> GruposAlimentares();
+
     }
 }

@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using SQLitePCL;
 using TACO_Nutricional.Models.Entidades;
 using TACO_Nutricional.Models.Repositorio;
 using TACO_Nutricional.Models.ViewModels;
@@ -14,7 +16,7 @@ namespace TACO_Nutricional.Controllers
     public class ComposicaoAlimentosController : Controller
     {
         private readonly IRepositorioAlimento _repositorioAlimento;
-        private readonly ObjetosDaSessao _objetosDaSessao;
+        private readonly ObjetosDaSessao _objetosDaSessao;        
 
         public ComposicaoAlimentosController(IRepositorioAlimento repositorioAlimento, ObjetosDaSessao objetosDaSessao)
         {
@@ -53,7 +55,7 @@ namespace TACO_Nutricional.Controllers
         public IActionResult AdicionarAlimentoNaRefeicao(int id, double porcao)
         {
             var alimento = _repositorioAlimento.AlimentoParaMontarRefeicao(id, porcao);
-            var alimentoVM = new MontarRefeicaoVM
+            var alimentoVM = new AlimentoVM
             {
                 Id = id,
                 NomeAlimento = alimento.Nome,
@@ -71,13 +73,27 @@ namespace TACO_Nutricional.Controllers
 
         public async Task<IActionResult> CadastrarAlimento()
         {
-            return View();
+            var listaGrupo = _repositorioAlimento.GruposAlimentares().Select(g => new { g.Id, g.Nome }).ToList();
+            var alimentoVM = new AlimentoVM
+            {
+                GruposAlimentaresDD = new SelectList(listaGrupo, "Id", "Nome")
+            };
+            return View(alimentoVM);
         }
 
         [HttpPost]
-        public IActionResult CadastrarAlimento(Alimento alimento)
+        public IActionResult CadastrarAlimento(AlimentoVM alimento)
         {
-            _repositorioAlimento.CadastrarAlimento(alimento);
+            var alimentoNovo = new Alimento
+            {
+                Nome = alimento.NomeAlimento,
+                Caloria = (double)alimento.Calorias,
+                Proteina = (double)alimento.Proteina,
+                Carboidrato = (double)alimento.Carboidrato,
+                Lipideos = (double)alimento.Lipideos,
+                GrupoAlimentarId = alimento.GrupoAlimentarId
+            };
+            _repositorioAlimento.CadastrarAlimento(alimentoNovo);
             return Json(new { Mensagem = "Salvo com sucesso!" });
         }
 

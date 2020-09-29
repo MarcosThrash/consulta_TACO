@@ -1,4 +1,4 @@
-﻿@model TACO_Nutricional.Models.Entidades.Alimento
+﻿@model TACO_Nutricional.Models.ViewModels.AlimentoVM
 
 @{
     ViewData["Title"] = "CadastrarAlimento";
@@ -12,19 +12,14 @@
         <form asp-action="CadastrarAlimento">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>            
             <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+                <label asp-for="NomeAlimento" class="control-label"></label>
+                <input asp-for="NomeAlimento" class="form-control" />
+                <span asp-validation-for="NomeAlimento" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Umidade" class="control-label"></label>
-                <input asp-for="Umidade" class="form-control" />
-                <span asp-validation-for="Umidade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Caloria" class="control-label"></label>
-                <input asp-for="Caloria" class="form-control" />
-                <span asp-validation-for="Caloria" class="text-danger"></span>
+           <div class="form-group">
+                <label asp-for="Calorias" class="control-label"></label>
+                <input asp-for="Calorias" class="form-control" />
+                <span asp-validation-for="Calorias" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Proteina" class="control-label"></label>
@@ -39,21 +34,17 @@
            
             <div class="form-group">
                 <label asp-for="Carboidrato" class="control-label"></label>
-                <input asp-for="Carboidrato" class="form-control" />
+                <input asp-for="Carboidrato" class="form-control" required />
                 <span asp-validation-for="Carboidrato" class="text-danger"></span>
             </div>
             
             <div class="form-group">
                 <label asp-for="GrupoAlimentarId" class="control-label"></label>
-                <input asp-for="GrupoAlimentarId" class="form-control" />
+                <select asp-for="GrupoAlimentarId" asp-items="Model.GruposAlimentaresDD" class="form-control">
+                    <option value=""> Selecionse o Grupo Alimentar </option>
+                </select>
                 <span asp-validation-for="GrupoAlimentarId" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="PorcaoParaMontarREfeicao" class="control-label"></label>
-                <input asp-for="PorcaoParaMontarREfeicao" class="form-control" />
-                <span asp-validation-for="PorcaoParaMontarREfeicao" class="text-danger"></span>
-            </div>
+            </div>           
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

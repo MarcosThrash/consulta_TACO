@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TACO_Nutricional.Models.Contexto;
 
 namespace TACO_Nutricional.Migrations
 {
     [DbContext(typeof(TacoContexto))]
-    partial class TacoContextoModelSnapshot : ModelSnapshot
+    [Migration("20200928190741_cadastroPorUusario")]
+    partial class cadastroPorUusario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -43,6 +43,11 @@ namespace TACO_Nutricional.Models.Repositorio
             _context.Alimentos.Add(alimento);
             _context.SaveChanges();
         }
+
+        public IEnumerable<GrupoAlimentar> GruposAlimentares()
+        {
+            return _context.GruposAlimentares.OrderBy(g => g.Nome).ToList();
+        }
     }
 
 }

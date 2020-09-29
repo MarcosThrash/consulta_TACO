@@ -28,7 +28,7 @@ using TACO_Nutricional.Models;
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4b8af139517fbe4033a412a2ac8a474211d26f4d", @"/Views/ComposicaoAlimentos/MontarRefeicao.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cba4cbea129fc3431dc499673736ea57734d52e8", @"/Views/_ViewImports.cshtml")]
-    public class Views_ComposicaoAlimentos_MontarRefeicao : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<TACO_Nutricional.Models.ViewModels.MontarRefeicaoVM>>
+    public class Views_ComposicaoAlimentos_MontarRefeicao : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<TACO_Nutricional.Models.ViewModels.AlimentoVM>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString(""), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "ComposicaoAlimentos", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -129,7 +129,7 @@ WriteAttributeValue("", 1087, Url.Action("CriarOuEditar","AdminLanches",new { id
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<IEnumerable<TACO_Nutricional.Models.ViewModels.MontarRefeicaoVM>> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<IEnumerable<TACO_Nutricional.Models.ViewModels.AlimentoVM>> Html { get; private set; }
     }
 }
 #pragma warning restore 1591
