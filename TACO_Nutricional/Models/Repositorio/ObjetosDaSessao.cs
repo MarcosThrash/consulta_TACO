@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using TACO_Nutricional.Models.ViewModels;
 
 namespace TACO_Nutricional.Models.Repositorio
@@ -24,7 +25,7 @@ namespace TACO_Nutricional.Models.Repositorio
         public IList<AlimentoVM> ObterListaRefeicao()
         {
             IniciarListaRefeicaoNaSessão();
-            return JsonConvert.DeserializeObject<List<AlimentoVM>>(_httpContextAccessor.HttpContext.Session.GetString("ListaRefeicao"));
+            return JsonConvert.DeserializeObject<List<AlimentoVM>>(_httpContextAccessor.HttpContext.Session.GetString("ListaRefeicao"));           
         }
 
         public AlimentoVM ObterAlimentoDaListaRefeicao(int id) =>
@@ -52,6 +53,13 @@ namespace TACO_Nutricional.Models.Repositorio
             }
         }
 
+        public void DeletarItemDaRefeicao(int id)
+        {
+            var lista = ObterListaRefeicao();
+            var alimentoAux = ObterAlimentoDaListaRefeicao(id);
+            lista.Remove(alimentoAux);
+            _httpContextAccessor.HttpContext.Session.SetString("ListaRefeicao", JsonConvert.SerializeObject(lista));
+        }
 
     }
 }

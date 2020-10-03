@@ -10,7 +10,7 @@ namespace TACO_Nutricional.Models.Entidades
 
         public double Umidade { get; set; }
 
-        public double Caloria { get; set; }
+        public double Calorias { get; set; }
 
         public double Proteina { get; set; }
 
@@ -44,7 +44,7 @@ namespace TACO_Nutricional.Models.Entidades
 
         public int GrupoAlimentarId { get; set; }
 
-        public bool CadastradoPorUsuario { get; set; }
+        public bool? CadastradoPorUsuario { get; set; }
 
         public virtual GrupoAlimentar GrupoAlimentar { get; set; }
 

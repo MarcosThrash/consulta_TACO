@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Newtonsoft.Json;
-using SQLitePCL;
 using TACO_Nutricional.Models.Entidades;
 using TACO_Nutricional.Models.Repositorio;
 using TACO_Nutricional.Models.ViewModels;
@@ -25,9 +21,9 @@ namespace TACO_Nutricional.Controllers
         }
 
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {             
-            return View(_repositorioAlimento.Alimentos());
+            return View(await _repositorioAlimento.Alimentos());
         }
 
 
@@ -63,17 +59,17 @@ namespace TACO_Nutricional.Controllers
                 Proteina = alimento.Proteina,
                 Carboidrato = alimento.Carboidrato,
                 Lipideos = alimento.Lipideos,
-                Calorias = alimento.Caloria
-            };
-           
+                Calorias = alimento.Calorias
+            };                       
             _objetosDaSessao.AdicionarNaListaRefeicao(alimentoVM);
-            return PartialView("RefeicaoPartial", _objetosDaSessao.ObterListaRefeicao());
+            var lista = _objetosDaSessao.ObterListaRefeicao();
+            return PartialView("RefeicaoPartial", lista);
         }
 
 
-        public async Task<IActionResult> CadastrarAlimento()
+        public IActionResult CadastrarAlimento()
         {
-            var listaGrupo = _repositorioAlimento.GruposAlimentares().Select(g => new { g.Id, g.Nome }).ToList();
+            var listaGrupo =  _repositorioAlimento.GruposAlimentares().Select(g => new { g.Id, g.Nome }).ToList();
             var alimentoVM = new AlimentoVM
             {
                 GruposAlimentaresDD = new SelectList(listaGrupo, "Id", "Nome")
@@ -84,18 +80,51 @@ namespace TACO_Nutricional.Controllers
         [HttpPost]
         public IActionResult CadastrarAlimento(AlimentoVM alimento)
         {
-            var alimentoNovo = new Alimento
+
+            try
             {
-                Nome = alimento.NomeAlimento,
-                Caloria = (double)alimento.Calorias,
-                Proteina = (double)alimento.Proteina,
-                Carboidrato = (double)alimento.Carboidrato,
-                Lipideos = (double)alimento.Lipideos,
-                GrupoAlimentarId = alimento.GrupoAlimentarId
-            };
-            _repositorioAlimento.CadastrarAlimento(alimentoNovo);
-            return Json(new { Mensagem = "Salvo com sucesso!" });
+                var alimentoNovo = new Alimento
+                {
+                    Nome = alimento.NomeAlimento + " *",
+                    Calorias = (double)alimento.Calorias,
+                    Proteina = (double)alimento.Proteina,
+                    Carboidrato = (double)alimento.Carboidrato,
+                    Lipideos = (double)alimento.Lipideos,
+                    GrupoAlimentarId = alimento.GrupoAlimentarId,
+                    CadastradoPorUsuario = true
+                };
+                _repositorioAlimento.CadastrarAlimento(alimentoNovo);
+                return Json(new { isValid = true, Mensagem = "Salvo com sucesso!" });
+            }
+            catch (Exception)
+            {
+                return Json(new { isValid = false, Mensagem = "Ops... algo deu errado!" });
+            }
+            
         }
 
+        [HttpPost]
+        public IActionResult DeletarItemdaRefeicao(int id)
+        {
+            try
+            {
+                _objetosDaSessao.DeletarItemDaRefeicao(id);
+                TempData["Sucesso"] = "Operação efetuada com sucesso!";
+                return Json(new { isValid = true, Mensagem = "Salvo com sucesso!" });
+            }
+            catch (Exception)
+            {
+
+                TempData["Erro"] = "Ops! Aconteceu algum problema!";
+                return Json(new { isValid = false, Mensagem = "Ops... algo deu errado!" });
+            }
+            
+        }
+
+        public IActionResult GridRefeçao()
+        {
+            return PartialView("RefeicaoPartial", _objetosDaSessao.ObterListaRefeicao());
+        }
+        
     }
 }

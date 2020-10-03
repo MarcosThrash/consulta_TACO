@@ -11,13 +11,15 @@ namespace TACO_Nutricional.Models.Repositorio
 
         public IEnumerable<Alimento> AlimentosPorNome(string nome);
 
-        public IEnumerable<Alimento> Alimentos();
+        public Task<IEnumerable<Alimento>> Alimentos();
 
         public Alimento AlimentoParaMontarRefeicao(int Id, double porcao);
 
         public void CadastrarAlimento(Alimento alimento);
 
         public IEnumerable<GrupoAlimentar> GruposAlimentares();
+
+       
 
     }
 }

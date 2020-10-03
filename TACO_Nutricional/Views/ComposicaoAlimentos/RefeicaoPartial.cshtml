@@ -1,11 +1,11 @@
-﻿@model IEnumerable<TACO_Nutricional.Models.ViewModels.MontarRefeicaoVM>
+﻿@model IEnumerable<TACO_Nutricional.Models.ViewModels.AlimentoVM>
 
 @{ 
     Layout = null;
 }
 
 
-<table class="table ">
+<table class="table table-responsive">
 
     <thead class="thead-light">
         <tr>
@@ -27,6 +27,9 @@
             <th>
                 Lipídeos (g)
             </th>
+            <th>
+                Opções
+            </th>
 
         </tr>
     </thead>
@@ -35,48 +38,54 @@
         {
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NomeAlimento)
-                    </td>
-                    <td class="text-center">
-                        @item.PorcaoNoPrato
-                    </td>
-                    <td class="text-center">
-                        @item.Calorias.ToString("0.0")
-                    </td>
-                    <td class="text-center">
-                        @item.Proteina.ToString("0.0")
-                    </td>
-                    <td class="text-center">
-                        @item.Carboidrato.ToString("0.0")
-                    </td>
-                    <td class="text-center">
-                        @item.Lipideos.ToString("0.0")
-                    </td>
-                </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeAlimento)
+            </td>
+            <td class="text-center">
+                @item.PorcaoNoPrato
+            </td>
+            <td class="text-center">
+                @item.Calorias
+            </td>
+            <td class="text-center">
+                @item.Proteina
+            </td>
+            <td class="text-center">
+                @item.Carboidrato
+            </td>
+            <td class="text-center">
+                @item.Lipideos
+            </td>
+            <td>
+                <a onclick="AjaxDeleteItemRefeicao('@Url.Action("DeletarItemdaRefeicao","ComposicaoAlimentos",new {id=item.Id},Context.Request.Scheme)')" class="btn btn-danger text-white" title="Deletar"><i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
             }
 
-            <tr class="thead-light">
-                <th >
-                    TOTAIS
-                </th>
-                <th class="text-center">
-                    @Model.Select(a => a.PorcaoNoPrato).Sum()
-                </th>
-                <th class="text-center">
-                    @Model.Select(a => a.Calorias).Sum().ToString("0.0")
-                </th>
-                <th class="text-center">
-                    @Model.Select(a => a.Proteina).Sum().ToString("0.0")
-                </th>
-                <th class="text-center">
-                    @Model.Select(a => a.Carboidrato).Sum().ToString("0.0")
-                </th>
-                <th class="text-center">
-                    @Model.Select(a => a.Lipideos).Sum().ToString("0.0")
-                </th>
-            </tr>
+    <tr class="thead-light">
+        <th>
+            TOTAIS
+        </th>
+        <th class="text-center">
+            @Model.Select(a => a.PorcaoNoPrato).Sum()
+        </th>
+        <th class="text-center">
+            @Model.Select(a => a.Calorias).Sum()
+        </th>
+        <th class="text-center">
+            @Model.Select(a => a.Proteina).Sum()
+        </th>
+        <th class="text-center">
+            @Model.Select(a => a.Carboidrato).Sum()
+        </th>
+        <th class="text-center">
+            @Model.Select(a => a.Lipideos).Sum()
+        </th>
+       <th></th>
+        
+
+    </tr>
 
         }
         else

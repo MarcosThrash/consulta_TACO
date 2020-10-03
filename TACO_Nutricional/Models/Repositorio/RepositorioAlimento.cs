@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,11 +20,12 @@ namespace TACO_Nutricional.Models.Repositorio
         public Alimento AlimentoParaMontarRefeicao(int Id, double porcao)
         {
             var alimento = _context.Alimentos.Where(a => a.Id == Id).FirstOrDefault();
-            var ckal = (Math.Round(alimento.Caloria,0) / 100 * porcao);
+            var ckal = (Math.Round(alimento.Calorias,0) / 100 * porcao);
             var proteina = (Math.Round(alimento.Proteina,1) / 100 * porcao);
             var carboidrato = (Math.Round(alimento.Carboidrato,1) / 100 * porcao);
             var lipideos = (Math.Round(alimento.Lipideos,1) / 100 * porcao);            
-            return new Alimento { Nome = alimento.Nome, Caloria = ckal, Proteina = proteina, Carboidrato = carboidrato, Lipideos = lipideos };             
+            return new Alimento { Nome = alimento.Nome, Calorias = Math.Round(ckal,0), Proteina = Math.Round(proteina,1), 
+                                  Carboidrato = Math.Round(carboidrato, 1), Lipideos = Math.Round(lipideos,1) };             
         }
 
         public IEnumerable<Alimento> AlimentosPorNome(string nome)
@@ -33,9 +35,9 @@ namespace TACO_Nutricional.Models.Repositorio
                 .ToList();
         }
 
-        public IEnumerable<Alimento> Alimentos()
+        public async Task<IEnumerable<Alimento>> Alimentos()
         {
-            return _context.Alimentos.OrderBy(a => a.Nome).ToList();
+            return await _context.Alimentos.OrderBy(a => a.Nome).ToListAsync();
         }
 
         void IRepositorioAlimento.CadastrarAlimento(Alimento alimento)
@@ -48,6 +50,8 @@ namespace TACO_Nutricional.Models.Repositorio
         {
             return _context.GruposAlimentares.OrderBy(g => g.Nome).ToList();
         }
+
+        
     }
 
 }
