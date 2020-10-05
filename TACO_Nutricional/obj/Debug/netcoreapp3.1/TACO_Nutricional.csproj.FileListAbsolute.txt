@@ -427,8 +427,6 @@ C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\Razor\Views\ComposicaoAlimentos\Index.cshtml.g.cs
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\Razor\Views\ComposicaoAlimentos\MontarRefeicao.cshtml.g.cs
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\Razor\Views\ComposicaoAlimentos\RefeicaoPartial.cshtml.g.cs
-C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
