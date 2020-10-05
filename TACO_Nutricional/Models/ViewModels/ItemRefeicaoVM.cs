@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TACO_Nutricional.Models.ViewModels
 {
-    public class AlimentoVM
+    public class ItemRefeicaoVM
     {
 
         public int Id { get; set; }
@@ -32,7 +32,7 @@ namespace TACO_Nutricional.Models.ViewModels
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
-            AlimentoVM aux = obj as AlimentoVM;
+            ItemRefeicaoVM aux = obj as ItemRefeicaoVM;
             return (this.Id == aux.Id);
         }
 

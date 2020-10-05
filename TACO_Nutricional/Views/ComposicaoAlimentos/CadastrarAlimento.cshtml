@@ -1,4 +1,4 @@
-﻿@model TACO_Nutricional.Models.ViewModels.AlimentoVM
+﻿@model TACO_Nutricional.Models.ViewModels.ItemRefeicaoVM
 
 @{
     ViewData["Title"] = "CadastrarAlimento";
@@ -70,8 +70,8 @@
     
 
     <div class="form-group">
-        <input type="submit" value="Salvar" class="btn btn-success" />
-        <input type="submit" value="Cancelar" class="btn btn-warning" />
+        <button class="btn btn-success" type="submit"> <i class="fas fa-save"></i> Salvar</button>
+        <a asp-action="Index" class="btn btn-warning">Cancelar</a>
     </div>
 </form>
     

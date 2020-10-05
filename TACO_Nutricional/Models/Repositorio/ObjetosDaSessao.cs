@@ -19,19 +19,19 @@ namespace TACO_Nutricional.Models.Repositorio
         private void IniciarListaRefeicaoNaSessão()
         {
             if (_httpContextAccessor.HttpContext.Session.GetString("ListaRefeicao") == null)
-                _httpContextAccessor.HttpContext.Session.SetString("ListaRefeicao", JsonConvert.SerializeObject(new List<AlimentoVM>()));
+                _httpContextAccessor.HttpContext.Session.SetString("ListaRefeicao", JsonConvert.SerializeObject(new List<ItemRefeicaoVM>()));
         }
 
-        public IList<AlimentoVM> ObterListaRefeicao()
+        public IList<ItemRefeicaoVM> ObterListaRefeicao()
         {
             IniciarListaRefeicaoNaSessão();
-            return JsonConvert.DeserializeObject<List<AlimentoVM>>(_httpContextAccessor.HttpContext.Session.GetString("ListaRefeicao"));           
+            return JsonConvert.DeserializeObject<List<ItemRefeicaoVM>>(_httpContextAccessor.HttpContext.Session.GetString("ListaRefeicao"));           
         }
 
-        public AlimentoVM ObterAlimentoDaListaRefeicao(int id) =>
+        public ItemRefeicaoVM ObterAlimentoDaListaRefeicao(int id) =>
             ObterListaRefeicao().Where(a => a.Id == id).FirstOrDefault();
        
-        public void AdicionarNaListaRefeicao(AlimentoVM alimento)
+        public void AdicionarNaListaRefeicao(ItemRefeicaoVM alimento)
         {
             var lista = ObterListaRefeicao();
             var alimentoAux = ObterAlimentoDaListaRefeicao(alimento.Id);

@@ -444,3 +444,4 @@ C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\TACO_Nutricional.pdb
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\TACO_Nutricional.genruntimeconfig.cache
 C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\TACO_Nutricional.csprojAssemblyReference.cache
+C:\Sistemas Versionados\TACO_Nutricional\TACO_Nutricional\obj\Debug\netcoreapp3.1\Razor\Views\ComposicaoAlimentos\EditarPorcaoItem.cshtml.g.cs

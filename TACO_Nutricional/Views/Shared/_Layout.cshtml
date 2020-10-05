@@ -12,10 +12,10 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-success border-bottom box-shadow mb-5">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-success-dark border-bottom box-shadow mb-1">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="ComposicaoAlimentos" asp-action="Index">
-                    <img src="~/img/logo_taco_f.png" width="150" class="d-inline-block align-top" />                    
+                    <img src="~/img/logo_taco_f.png" width="150" class="d-inline-block align-top" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -29,31 +29,80 @@
                     </form>
 
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="ComposicaoAlimentos" asp-action="CadastrarAlimento">Cadastrar Alimento</a>
+                        <li class="nav-item mr-4">
+                            <a class="nav-link text-white" asp-area="" asp-controller="ComposicaoAlimentos" asp-action="Index">Alimentos</a>
+                        </li>
+                        <li class="nav-item mr-4">
+                            <a class="nav-link text-white" asp-area="" asp-controller="ComposicaoAlimentos" asp-action="CadastrarAlimento">Cadastrar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="ComposicaoAlimentos" asp-action="MontarRefeicao">Montar Refeição</a>
                         </li>
                     </ul>
-
-
-
                 </div>
             </div>
         </nav>
+        <div class="container-fluid mb-5">          
+           <img src="~/img/alimentos_lg.jpg" class="img-fluid" />           
+        </div>
     </header>
+
+       
+       
+       
+    
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+
+    @*Modal*@
+    <div class="modal" tabindex="-1" role="dialog" id="form-modal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title"></h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="bg-dark">
         <div class="container">
-            &copy; 2020 - TACO_Nutricional - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row text-white">
+                <div class="col-6 text-center align-text-bottom">
+                    <i class="fab fa-phoenix-framework fa-10x text-primary"></i>
+                    <h2 >Desenvolvidor por</h2>
+                    <p class="display-4 text-primary">Marcos Aurélio</p>
+                </div>
+                <div class="col-3">
+                    <p>
+                        <h4>What is Lorem Ipsum?</h4>
+                    </p>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    </p>
+                </div>
+                <div class="col-3">
+                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. 
+                </div>
+            </div>
         </div>
     </footer>
+
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

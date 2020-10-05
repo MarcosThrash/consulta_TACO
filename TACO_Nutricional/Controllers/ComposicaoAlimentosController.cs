@@ -29,7 +29,10 @@ namespace TACO_Nutricional.Controllers
 
         public IActionResult MontarRefeicao()
         {
-            return View(_objetosDaSessao.ObterListaRefeicao());
+            var ItensRefeicao = _objetosDaSessao.ObterListaRefeicao();
+            var Refeicao = new RefeicaoVM { ItensRefeicao = (System.Collections.Generic.List<ItemRefeicaoVM>)ItensRefeicao };
+            Refeicao.CalcularTotais();
+            return View(Refeicao);
         }
 
 
@@ -51,7 +54,7 @@ namespace TACO_Nutricional.Controllers
         public IActionResult AdicionarAlimentoNaRefeicao(int id, double porcao)
         {
             var alimento = _repositorioAlimento.AlimentoParaMontarRefeicao(id, porcao);
-            var alimentoVM = new AlimentoVM
+            var alimentoVM = new ItemRefeicaoVM
             {
                 Id = id,
                 NomeAlimento = alimento.Nome,
@@ -62,15 +65,17 @@ namespace TACO_Nutricional.Controllers
                 Calorias = alimento.Calorias
             };                       
             _objetosDaSessao.AdicionarNaListaRefeicao(alimentoVM);
-            var lista = _objetosDaSessao.ObterListaRefeicao();
-            return PartialView("RefeicaoPartial", lista);
+            var ItensRefeicaoAtualizados = _objetosDaSessao.ObterListaRefeicao();
+            var RefeicaoAtualizada = new RefeicaoVM { ItensRefeicao = (System.Collections.Generic.List<ItemRefeicaoVM>)ItensRefeicaoAtualizados };
+            RefeicaoAtualizada.CalcularTotais();
+            return PartialView("RefeicaoPartial", RefeicaoAtualizada);
         }
 
 
         public IActionResult CadastrarAlimento()
         {
             var listaGrupo =  _repositorioAlimento.GruposAlimentares().Select(g => new { g.Id, g.Nome }).ToList();
-            var alimentoVM = new AlimentoVM
+            var alimentoVM = new ItemRefeicaoVM
             {
                 GruposAlimentaresDD = new SelectList(listaGrupo, "Id", "Nome")
             };
@@ -78,7 +83,7 @@ namespace TACO_Nutricional.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastrarAlimento(AlimentoVM alimento)
+        public IActionResult CadastrarAlimento(ItemRefeicaoVM alimento)
         {
 
             try
@@ -121,10 +126,47 @@ namespace TACO_Nutricional.Controllers
             
         }
 
-        public IActionResult GridRefeçao()
+        public IActionResult GridRefeicao()
         {
-            return PartialView("RefeicaoPartial", _objetosDaSessao.ObterListaRefeicao());
+            var ItensRefeicao = _objetosDaSessao.ObterListaRefeicao();
+            var Refeicao = new RefeicaoVM { ItensRefeicao = (System.Collections.Generic.List<ItemRefeicaoVM>)ItensRefeicao };
+            Refeicao.CalcularTotais();
+            return PartialView("RefeicaoPartial", Refeicao);
         }
-        
+
+        public IActionResult EditarPorcaoItem(int Id)
+        {
+            var itemRefeicao = _objetosDaSessao.ObterAlimentoDaListaRefeicao(Id);
+            return PartialView(itemRefeicao);
+        }
+
+        [HttpPost]
+        public IActionResult EditarPorcaoItem(ItemRefeicaoVM itemRefeicao)
+        {
+            try
+            {
+                _objetosDaSessao.DeletarItemDaRefeicao(itemRefeicao.Id);
+                var alimento = _repositorioAlimento.AlimentoParaMontarRefeicao(itemRefeicao.Id, (double)itemRefeicao.PorcaoNoPrato);
+                var alimentoVM = new ItemRefeicaoVM
+                {
+                    Id = itemRefeicao.Id,
+                    NomeAlimento = alimento.Nome,
+                    PorcaoNoPrato = itemRefeicao.PorcaoNoPrato,
+                    Proteina = alimento.Proteina,
+                    Carboidrato = alimento.Carboidrato,
+                    Lipideos = alimento.Lipideos,
+                    Calorias = alimento.Calorias
+                };
+                _objetosDaSessao.AdicionarNaListaRefeicao(alimentoVM);
+                return Json(new { isValid = true, Mensagem = "Alterado com sucesso!" });
+            }
+            catch (Exception e)
+            {
+                return Json(new { isValid = false, Mensagem = e.GetBaseException().Message });
+            }
+           
+        }
+
+
     }
 }

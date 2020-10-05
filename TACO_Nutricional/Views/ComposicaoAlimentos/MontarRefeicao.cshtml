@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TACO_Nutricional.Models.ViewModels.AlimentoVM>
+﻿@model TACO_Nutricional.Models.ViewModels.RefeicaoVM
 
 <h1><i class="fas fa-utensils text-success"></i> Montar Refeição</h1>
 
@@ -24,8 +24,8 @@
 
 <div class="div-tabela shadow p-3 mb-5 bg-white rounded">
 
-    @Html.Partial("RefeicaoPartial", Model)
-
+    <partial name="RefeicaoPartial" for="@Model" />
+   
 </div>
 
 

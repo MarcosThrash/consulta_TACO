@@ -1,11 +1,11 @@
-﻿@model IEnumerable<TACO_Nutricional.Models.ViewModels.AlimentoVM>
+﻿@model TACO_Nutricional.Models.ViewModels.RefeicaoVM
 
 @{ 
     Layout = null;
 }
 
 
-<table class="table table-responsive">
+<table class="table">
 
     <thead class="thead-light">
         <tr>
@@ -13,19 +13,19 @@
                 Nome Alimento
             </th>
             <th>
-                Porção (g)
+                Porção(g)
             </th>
             <th>
-                Kcal (g)
+                Calorias
             </th>
             <th>
-                Proteína (g)
+                Proteínas(g)
             </th>
             <th>
-                Carboidrato (g)
+                Carboidratos(g)
             </th>
             <th>
-                Lipídeos (g)
+                Lipídeos(g)
             </th>
             <th>
                 Opções
@@ -34,9 +34,9 @@
         </tr>
     </thead>
     <tbody>
-        @if (Model.Any())
+        @if (Model.ItensRefeicao.Any())
         {
-            @foreach (var item in Model)
+            @foreach (var item in Model.ItensRefeicao)
             {
         <tr>
             <td>
@@ -58,7 +58,15 @@
                 @item.Lipideos
             </td>
             <td>
-                <a onclick="AjaxDeleteItemRefeicao('@Url.Action("DeletarItemdaRefeicao","ComposicaoAlimentos",new {id=item.Id},Context.Request.Scheme)')" class="btn btn-danger text-white" title="Deletar"><i class="fas fa-trash"></i></a>
+
+                <a onclick="showInPopup('@Url.Action("EditarPorcaoItem","ComposicaoAlimentos",
+                                                    new {id=item.Id},Context.Request.Scheme)','Editar Porcao')" 
+                   class="btn btn-info text-white" title="Editar"><i class="fas fa-pencil-alt"></i></a>
+
+                <a onclick="AjaxDeleteItemRefeicao('@Url.Action("DeletarItemdaRefeicao","ComposicaoAlimentos",
+                                                                        new {id=item.Id},Context.Request.Scheme)')" 
+                   class="btn btn-danger text-white" title="Deletar"><i class="fas fa-trash"></i></a>
+
             </td>
         </tr>
             }
@@ -68,19 +76,19 @@
             TOTAIS
         </th>
         <th class="text-center">
-            @Model.Select(a => a.PorcaoNoPrato).Sum()
+            @Model.TotalPorcao
         </th>
         <th class="text-center">
-            @Model.Select(a => a.Calorias).Sum()
+            @Model.TotalCalorias
         </th>
         <th class="text-center">
-            @Model.Select(a => a.Proteina).Sum()
+            @Model.TotalProteinas
         </th>
         <th class="text-center">
-            @Model.Select(a => a.Carboidrato).Sum()
+            @Model.TotalCarboidratos
         </th>
         <th class="text-center">
-            @Model.Select(a => a.Lipideos).Sum()
+            @Model.TotalLipideos
         </th>
        <th></th>
         
