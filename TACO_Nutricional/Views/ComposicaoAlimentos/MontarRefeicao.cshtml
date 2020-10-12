@@ -1,18 +1,21 @@
 ﻿@model TACO_Nutricional.Models.ViewModels.RefeicaoVM
 
-<h1><i class="fas fa-utensils text-success"></i> Montar Refeição</h1>
+<h1><i class="fas fa-utensils text-success"></i> Calcular Refeição</h1>
 
 <hr />
 
 
 
 <form class="" asp-controller="ComposicaoAlimentos" asp-action="AdicionarAlimentoNaRefeicao" onsubmit="return ajaxMontarRefeição(this)" ;>
+    <div class="alert alert-warning" role="alert">
+        <strong>Atenção: </strong> Você pode adicionar varios alimentos com seu peso em gramas!
+    </div>
     <div class="form-row">
         <div class="form-group col-md-7">
             <select class=" select-alimentos" required name="id"></select>
         </div>
         <div class="form-group col-md-2">
-            <input class="form-control" type="number" placeholder="Porção(gr)" aria-label="Porção(gr)" name="porcao" required>
+            <input class="form-control" type="number" placeholder="Peso(gr)" aria-label="Porção(gr)" name="porcao" required>
         </div>
         <div class="form-group col-md-1">
             <button class="btn btn-primary" type="submit"> <i class="fas fa-plus-square"></i></button>

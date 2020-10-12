@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using TACO_Nutricional.Models.Entidades;
@@ -12,12 +14,14 @@ namespace TACO_Nutricional.Controllers
     public class ComposicaoAlimentosController : Controller
     {
         private readonly IRepositorioAlimento _repositorioAlimento;
-        private readonly ObjetosDaSessao _objetosDaSessao;        
+        private readonly ObjetosDaSessao _objetosDaSessao; 
+        private readonly IHostingEnvironment _hostingEnvironment;
 
-        public ComposicaoAlimentosController(IRepositorioAlimento repositorioAlimento, ObjetosDaSessao objetosDaSessao)
+        public ComposicaoAlimentosController(IRepositorioAlimento repositorioAlimento, ObjetosDaSessao objetosDaSessao, IHostingEnvironment hostingEnvironment)
         {
             _repositorioAlimento = repositorioAlimento;
             _objetosDaSessao = objetosDaSessao;
+            _hostingEnvironment = hostingEnvironment;
         }
 
 
@@ -167,6 +171,18 @@ namespace TACO_Nutricional.Controllers
            
         }
 
+
+        [HttpGet]
+        public IActionResult DownloadFile()
+        {
+            // Since this is just and example, I am using a local file located inside wwwroot
+            // Afterwards file is converted into a stream
+            var path = Path.Combine(_hostingEnvironment.WebRootPath, "taco_4_edicao.pdf");
+            var fs = new FileStream(path, FileMode.Open);
+
+            // Return the file. A byte array can also be used instead of a stream
+            return File(fs, "application/octet-stream", "taco_4_edicao.pdf");
+        }
 
     }
 }

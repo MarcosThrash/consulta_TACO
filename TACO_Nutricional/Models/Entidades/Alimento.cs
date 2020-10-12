@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TACO_Nutricional.Models.Entidades
 {
@@ -50,6 +51,13 @@ namespace TACO_Nutricional.Models.Entidades
 
         [NotMapped]
         public double PorcaoParaMontarREfeicao { get; set; }
+
+        public bool EValido()
+        {
+            if (string.IsNullOrEmpty(Nome) || Double.IsNegative(Calorias) || Double.IsNegative(Carboidrato) ||
+               Double.IsNegative(Proteina) || Double.IsNegative(Lipideos)) return false;
+            return true;
+        }
 
     }
 }

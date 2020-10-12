@@ -11,7 +11,9 @@
     
 <form asp-action="CadastrarAlimento" onsubmit="return ajaxPostCAdastrarAlimento(this)">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+    <div class="alert alert-warning" role="alert">
+        <strong>Atenção: </strong> Cadastre os valores correspondentes a 100 gramas do alimento.
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
@@ -19,7 +21,7 @@
                 <input asp-for="NomeAlimento" class="form-control" required />
                 <span asp-validation-for="NomeAlimento" class="text-danger"></span>
             </div>
-        </div>        
+        </div>
     </div>
 
     <div class="row">
@@ -50,7 +52,7 @@
                 <input asp-for="Carboidrato" class="form-control" max="100" type="number" required />
                 <span asp-validation-for="Carboidrato" class="text-danger"></span>
             </div>
-        </div>      
+        </div>
     </div>
 
     <div class="row">
@@ -62,12 +64,12 @@
                 </select>
                 <span asp-validation-for="GrupoAlimentarId" class="text-danger"></span>
             </div>
-        </div>        
+        </div>
     </div>
-    
-   
+
+
     <hr />
-    
+
 
     <div class="form-group">
         <button class="btn btn-success" type="submit"> <i class="fas fa-save"></i> Salvar</button>

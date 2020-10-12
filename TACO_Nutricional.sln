@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TACO_Nutricional", "TACO_Nutricional\TACO_Nutricional.csproj", "{780369A1-68E6-4940-9C32-4E26C3E4ECA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TACO_Nutricional", "TACO_Nutricional\TACO_Nutricional.csproj", "{780369A1-68E6-4940-9C32-4E26C3E4ECA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TACO_Nutricional_Teste", "TACO_Nutricional_Teste\TACO_Nutricional_Teste.csproj", "{F64C60F0-E274-4745-8FD0-187BC420A5E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{780369A1-68E6-4940-9C32-4E26C3E4ECA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{780369A1-68E6-4940-9C32-4E26C3E4ECA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{780369A1-68E6-4940-9C32-4E26C3E4ECA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F64C60F0-E274-4745-8FD0-187BC420A5E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F64C60F0-E274-4745-8FD0-187BC420A5E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F64C60F0-E274-4745-8FD0-187BC420A5E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F64C60F0-E274-4745-8FD0-187BC420A5E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
