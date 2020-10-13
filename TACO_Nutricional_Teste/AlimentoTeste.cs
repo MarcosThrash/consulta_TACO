@@ -6,10 +6,11 @@ using Xunit;
 
 namespace TACO_Nutricional_Teste
 {
-    public class ClienteTeste
+    public class AlimentoTeste
     {
 
         [Fact]
+        [Trait("Alimento","Validando Alimento")]
         public void Alimento_EValido_CamposPrincipaisPreenchidos()
         {
             //Arrange
